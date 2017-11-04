@@ -93,7 +93,7 @@ int main(){
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 1;">&times;</button>
                         </div>
-                        <div class="modal-body text-center">
+                        <div id="divTokens" class="modal-body text-center">
                             <table id="tokens">
                                 <thead>
                                     <tr>

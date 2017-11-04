@@ -1,5 +1,23 @@
 window.onload = function() {
   populateSymbols();
+
+  let tokens = [];
+  tokens.push({
+    classe: "",
+    lexema: ""
+  });
+
+  $(function() {
+    $("#tokens").bootstrapTable({
+      data: tokens
+    });
+  });
+
+  $(function() {
+    $("#tokens").bootstrapTable("refresh");
+  });
+
+  seeAfd();
 };
 
 function seeAfd() {}
@@ -166,6 +184,18 @@ function populateToken(symbols) {
       lexema: ""
     });
   }
+
+  $("#tokens").remove();
+
+  document.getElementById("divTokens").innerHTML = `
+  <table id="tokens">
+    <thead>
+        <tr>
+            <th data-field="classe">classe</th>
+            <th data-field="lexema">lexema</th>
+        </tr>
+    </thead>
+  </table>`;
 
   $(function() {
     $("#tokens").bootstrapTable({
