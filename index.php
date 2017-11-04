@@ -19,128 +19,149 @@
 </head>
 
 <body>
-
-    <div class="center margin-in-bottom margin-in-top">
-        <h2>Lexical analysis</h2>
+    <div class="jumbotron">
+        <div class="center margin-in-bottom">
+            <h2>Lexical analysis</h2>
+        </div>
     </div>
 
-    <div class="jumbotron">
-        <div class="center">
-            <textarea rows="16" cols="40">
+    <div class="col-md-7 text-right">
+        <textarea id="code" rows="19" cols="60">
 int main(){
     float area;
-    float raio = 3.00;
+    float raio;
     float pi = 3.14;
     
+    cin >> raio;
+
     if(raio > 0){
         area = raio * raio * pi;
     } else {
-        cout << "raio negativo";
+        cout << "negativo";
+
         while(raio)
             raio++;
     }
 
     return 0;
-}
-            </textarea>
-        </div>
+}        
+        </textarea>
     </div>
 
-    <div class="center margin-in-bottom">
-        <button type="button" onclick="seeAfd()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#afd">See AFD</button>
-        <div class="modal fade" id="afd" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 1;">&times;</button>
+    <div class="col-md-5 margin-in-top-for-buttons margin-in-let-for-label">
+        <b>Matheus Arendt Hunsche</b>
+    </div>
+    <div class="col-md-5">
+        <b>Eduardo Ferrarezi</b>
+    </div>
+    <div class="col-md-5 margin-in-bottom-for-buttons">
+        <b>Rodrigo Rotava</b>
+    </div>
+
+
+
+    <div class="col-md-5 align-text-bottom">
+        <div class="btn-toolbar">
+            <button type="button" onclick="toAnalyze()" class="btn btn-success btn-lg">Run</button>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#symbolsModal">Symbols</button>
+            <div class="modal fade" id="symbolsModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 1;">&times;</button>
+                        </div>
+
+                        <div class="modal-body text-center">
+                            <table id="symbols">
+                                <thead>
+                                    <tr>
+                                        <th data-field="classe">classe</th>
+                                        <th data-field="lexema">lexema</th>
+                                        <th data-field="output">output</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
-                    <div class="modal-body text-center">
-                        <table id="afd">
-                            <thead>
-                                <tr>
-                                    <th data-field="output">Output</th>
-                                    <th data-field="goldenRatio">φ</th>
-                                    <th data-field="i">i</th>
-                                    <th data-field="f">f</th>
-                                    <th data-field="(">(</th>
-                                    <th data-field="t">t</th>
-                                    <th data-field="r">r</th>
-                                    <th data-field="u">u</th>
-                                    <th data-field="e">e</th>
-                                    <th data-field=")">)</th>
-                                    <th data-field="s">s</th>
-                                    <th data-field="t">t</th>
-                                    <th data-field="r">r</th>
-                                    <th data-field="i">i</th>
-                                    <th data-field="n">n</th>
-                                    <th data-field="g">g</th>
-                                    <th data-field="a">a</th>
-                                    <th data-field="=">=</th>
-                                    <th data-field='"'>"</th>
-                                    <th data-field=';'>;</th>
-                                    <th data-field='c'>c</th>
-                                    <th data-field='o'>o</th>
-                                    <th data-field='m'>m</th>
-                                    <th data-field='p'>p</th>
-                                    <th data-field='i'>i</th>
-                                    <th data-field='l'>l</th>
-                                    <th data-field='a'>a</th>
-                                    <th data-field='d'>d</th>
-                                    <th data-field='o'>o</th>
-                                    <th data-field='r'>r</th>
-                                    <th data-field='e'>e</th>
-                                    <th data-field='s'>s</th>
-                                </tr>
-                            </thead>
-                        </table>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tokensModal">Tokens</button>
+            <div class="modal fade" id="tokensModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 1;">&times;</button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <table id="tokens">
+                                <thead>
+                                    <tr>
+                                        <th data-field="classe">classe</th>
+                                        <th data-field="lexema">lexema</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" onclick="seeAfd()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#afd">AFD</button>
+            <div class="modal fade" id="afd" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 1;">&times;</button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <table id="afd">
+                                <thead>
+                                    <tr>
+                                        <th data-field="output">Output</th>
+                                        <th data-field="goldenRatio">φ</th>
+                                        <th data-field="i">i</th>
+                                        <th data-field="f">f</th>
+                                        <th data-field="(">(</th>
+                                        <th data-field="t">t</th>
+                                        <th data-field="r">r</th>
+                                        <th data-field="u">u</th>
+                                        <th data-field="e">e</th>
+                                        <th data-field=")">)</th>
+                                        <th data-field="s">s</th>
+                                        <th data-field="t">t</th>
+                                        <th data-field="r">r</th>
+                                        <th data-field="i">i</th>
+                                        <th data-field="n">n</th>
+                                        <th data-field="g">g</th>
+                                        <th data-field="a">a</th>
+                                        <th data-field="=">=</th>
+                                        <th data-field='"'>"</th>
+                                        <th data-field=';'>;</th>
+                                        <th data-field='c'>c</th>
+                                        <th data-field='o'>o</th>
+                                        <th data-field='m'>m</th>
+                                        <th data-field='p'>p</th>
+                                        <th data-field='i'>i</th>
+                                        <th data-field='l'>l</th>
+                                        <th data-field='a'>a</th>
+                                        <th data-field='d'>d</th>
+                                        <th data-field='o'>o</th>
+                                        <th data-field='r'>r</th>
+                                        <th data-field='e'>e</th>
+                                        <th data-field='s'>s</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <button type="button" onclick="toAnalyze()" class="btn btn-primary btn-lg">To Analyze</button>
     </div>
 
-    <div class="jumbotron">
-        <div class="text-center">
-            <div class="col-md-4 text-center">
-                <table id="symbols">
-                    <thead>
-                        <tr>
-                            <th data-field="classe">classe</th>
-                            <th data-field="lexema">lexema</th>
-                            <th data-field="output">output</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-    
-            <div class="col-md-4 text-center">
-                <table id="token">
-                    <thead>
-                        <tr>
-                            <th data-field="classe">classe</th>
-                            <th data-field="lexema">lexema</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-    
-            <div class="col-md-4 text-center">
-                <table id="levenshtein">
-                    <thead>
-                        <tr>
-                            <th data-field="word">word</th>
-                            <th data-field="similar">similar</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="center margin-in-top">
-        <b>Matheus Arendt Hunsche, Eduardo Ferrarezi, Rodrigo Rotava</b>
+    <div class="col-md-7 text-right margin-in-bottom">
+        <textarea disabled id="console" rows="3" cols="60">Wait!</textarea>
     </div>
 
 </body>

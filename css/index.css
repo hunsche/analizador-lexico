@@ -14,8 +14,10 @@
     margin-top: 1%;
 }
 
-.provisional{
-    margin: auto;
-    width: 30%;
-    border: 1px solid green;
+.margin-in-top-for-buttons {
+    margin-top: 150px;
+}
+
+.margin-in-bottom-for-buttons {
+    margin-bottom: 130px;
 }
