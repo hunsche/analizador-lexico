@@ -236,7 +236,26 @@ function getTokens(symbols, tokens) {
       let lexema = findLexema(buffers[buffer], symbols);
       if (lexema) {
         if (count - lexema.lexema.length - spaces > 0) {
-          return "Error line " + row + ", caracter " + col + "!";
+          let maior = buffers[0];
+
+          for (let interator in buffers) {
+            if (buffers[interator].length > maior.length)
+              maior = buffers[interator];
+          }
+
+          let error = maior.replace(lexema.lexema, "");
+
+          return (
+            "Error line " +
+            row +
+            ", caracter " +
+            col +
+            ". In '" +
+            error +
+            "' did you mean '" +
+            findLevenshtein(error, symbols) +
+            "'!"
+          );
         }
 
         count = 0;
@@ -265,7 +284,19 @@ function findLexema(value, symbols) {
   return found;
 }
 
-function populateLevenshtein(tokens) {}
+function findLevenshtein(value, symbols) {
+  let found;
+  for (let key in symbols) {
+    if (
+      symbols[key].classe == "Rezervat" &&
+      getDistance(symbols[key].lexema, value) <= value.length / 2
+    ) {
+      found = symbols[key].lexema;
+      break;
+    }
+  }
+  return found;
+}
 
 function getDistance(a, b) {
   /*
