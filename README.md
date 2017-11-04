@@ -1,3 +1,3 @@
-# afnd-to-afd
+# analizador-lexico
 
-https://afnd-to-afd.herokuapp.com/# analizador-lexico
+https://analizador-lexico.herokuapp.com/
