@@ -16,11 +16,7 @@ window.onload = function() {
   $(function() {
     $("#tokens").bootstrapTable("refresh");
   });
-
-  seeAfd();
 };
-
-function seeAfd() {}
 
 function toAnalyze() {
   let symbols = populateSymbols();

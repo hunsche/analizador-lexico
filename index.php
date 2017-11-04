@@ -106,57 +106,7 @@ int main(){
                     </div>
                 </div>
             </div>
-
-            <button type="button" onclick="seeAfd()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#afd">AFD</button>
-            <div class="modal fade" id="afd" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 1;">&times;</button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <table id="afd">
-                                <thead>
-                                    <tr>
-                                        <th data-field="output">Output</th>
-                                        <th data-field="goldenRatio">φ</th>
-                                        <th data-field="i">i</th>
-                                        <th data-field="f">f</th>
-                                        <th data-field="(">(</th>
-                                        <th data-field="t">t</th>
-                                        <th data-field="r">r</th>
-                                        <th data-field="u">u</th>
-                                        <th data-field="e">e</th>
-                                        <th data-field=")">)</th>
-                                        <th data-field="s">s</th>
-                                        <th data-field="t">t</th>
-                                        <th data-field="r">r</th>
-                                        <th data-field="i">i</th>
-                                        <th data-field="n">n</th>
-                                        <th data-field="g">g</th>
-                                        <th data-field="a">a</th>
-                                        <th data-field="=">=</th>
-                                        <th data-field='"'>"</th>
-                                        <th data-field=';'>;</th>
-                                        <th data-field='c'>c</th>
-                                        <th data-field='o'>o</th>
-                                        <th data-field='m'>m</th>
-                                        <th data-field='p'>p</th>
-                                        <th data-field='i'>i</th>
-                                        <th data-field='l'>l</th>
-                                        <th data-field='a'>a</th>
-                                        <th data-field='d'>d</th>
-                                        <th data-field='o'>o</th>
-                                        <th data-field='r'>r</th>
-                                        <th data-field='e'>e</th>
-                                        <th data-field='s'>s</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href="/html/afd.html" type="button" class="btn btn-primary btn-lg">AFD</a>
         </div>
     </div>
 
