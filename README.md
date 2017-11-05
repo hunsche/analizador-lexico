@@ -1,3 +1,3 @@
 # analizador-lexico
 
-https://analizador-lexico.herokuapp.com/
+https://lexical-analysis.herokuapp.com/
