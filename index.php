@@ -99,6 +99,7 @@ int main(){
                                     <tr>
                                         <th data-field="classe">classe</th>
                                         <th data-field="lexema">lexema</th>
+                                        <th data-field="output">output</th>
                                     </tr>
                                 </thead>
                             </table>

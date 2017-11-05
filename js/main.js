@@ -4,7 +4,8 @@ window.onload = function() {
   let tokens = [];
   tokens.push({
     classe: "",
-    lexema: ""
+    lexema: "",
+    output: ""
   });
 
   $(function() {
@@ -28,137 +29,137 @@ function populateSymbols() {
     {
       classe: "Rezervat",
       lexema: "int",
-      output: ""
+      output: "s11"
     },
     {
       classe: "Rezervat",
       lexema: "main",
-      output: ""
+      output: "s38"
     },
     {
       classe: "Rezervat",
       lexema: "float",
-      output: ""
+      output: "s42"
     },
     {
       classe: "Rezervat",
       lexema: "if",
-      output: ""
+      output: "s20"
     },
     {
       classe: "Rezervat",
       lexema: "else",
-      output: ""
+      output: "s39"
     },
     {
       classe: "Rezervat",
       lexema: "cout",
-      output: ""
+      output: "s40"
     },
     {
       classe: "Rezervat",
       lexema: "cin",
-      output: ""
+      output: "s34"
     },
     {
       classe: "Rezervat",
       lexema: "while",
-      output: ""
+      output: "s39"
     },
     {
       classe: "Rezervat",
       lexema: "return",
-      output: ""
+      output: "s44"
     },
     {
       classe: "Separator",
       lexema: "(",
-      output: ""
+      output: "s8"
     },
     {
       classe: "Separator",
       lexema: ")",
-      output: ""
+      output: "s9"
     },
     {
       classe: "Separator",
       lexema: "{",
-      output: ""
+      output: "s10"
     },
     {
       classe: "Separator",
       lexema: "}",
-      output: ""
+      output: "s11"
     },
     {
       classe: "Separator",
       lexema: "<<",
-      output: ""
+      output: "s14"
     },
     {
       classe: "Separator",
       lexema: ">>",
-      output: ""
+      output: "s13"
     },
     {
       classe: "Separator",
       lexema: ";",
-      output: ""
+      output: "s12"
     },
     {
       classe: "Separator",
       lexema: '"',
-      output: ""
+      output: "s18"
     },
     {
       classe: "Variable",
       lexema: "area",
-      output: ""
+      output: "s0"
     },
     {
       classe: "Variable",
       lexema: "raio",
-      output: ""
+      output: "s0"
     },
     {
       classe: "Variable",
       lexema: "pi",
-      output: ""
+      output: "s1"
     },
     {
       classe: "Numeric",
       lexema: "3, ., 1, 4",
-      output: ""
+      output: "s0"
     },
     {
       classe: "Numeric",
       lexema: "0",
-      output: ""
+      output: "s0"
     },
     {
       classe: "Attribution",
       lexema: "=",
-      output: ""
+      output: "s16"
     },
     {
       classe: "Attribution",
       lexema: "++",
-      output: ""
+      output: "s28"
     },
     {
       classe: "Literal",
       lexema: "n, e, g, a, t, i, v, o",
-      output: ""
+      output: "s0"
     },
     {
       classe: "Condition",
       lexema: ">",
-      output: ""
+      output: "s13"
     },
     {
       classe: "operation",
       lexema: "*",
-      output: ""
+      output: "s17"
     }
   ];
 
@@ -189,6 +190,7 @@ function populateToken(symbols) {
         <tr>
             <th data-field="classe">classe</th>
             <th data-field="lexema">lexema</th>
+            <th data-field="output">output</th>
         </tr>
     </thead>
   </table>`;
@@ -259,7 +261,8 @@ function getTokens(symbols, tokens) {
         buffers = [];
         let obj = {
           classe: lexema.classe,
-          lexema: lexema.lexema.replace(/ /g, "").replace(/,/g, "")
+          lexema: lexema.lexema.replace(/ /g, "").replace(/,/g, ""),
+          output: lexema.output 
         };
         tokens.push(obj);
       }
